@@ -1,0 +1,33 @@
+{
+  "name": "tic-tac-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bulma": "^0.4.0",
+    "prop-types": "^15.5.8",
+    "font-awesome": "^4.7.0",
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.4.2",
+    "react-router-dom": "^4.1.1",
+    "react-fontawesome": "^1.5.0",
+    "styled-components": "^1.4.4"
+  },
+  "devDependencies": {
+    "enzyme": "^2.8.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "react-addons-test-utils": "^15.5.1",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.5.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
