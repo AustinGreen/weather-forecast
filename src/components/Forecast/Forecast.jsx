@@ -36,6 +36,7 @@ class Forecast extends Component {
 
   render() {
     const { result, isLoading } = this.state;
+    console.log(result);
     return (
       <div>
         <div
