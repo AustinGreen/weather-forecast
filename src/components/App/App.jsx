@@ -1,34 +1,56 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
+import { PATH_BASE, PATH_SEARCH, PARAM_TYPE, PARAM_APPID } from '../../constants';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: null,
+    };
+
+    // Bind class methods to object instances
+    this.onSearchSubmit = this.onSearchSubmit.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
+  }
+
+  onSearchChange(e) {
+    this.setState({ searchTerm: e.target.value });
+  }
+
+  onSearchSubmit(e) {
+    const { searchTerm } = this.state;
+    fetch(`${PATH_BASE}${PATH_SEARCH}${searchTerm}&${PARAM_TYPE}&${PARAM_APPID}`)
+      .then(response => response.json())
+      .then(result => console.log(result));
+    e.preventDefault();
+  }
+
   render() {
+    // const { searchTerm } = this.state;
     return (
       <div>
-        <div className="section section--transparent column is-half is-offset-one-quarter is-large has-text-centered">
+        <div
+          className="section section--transparent column is-half
+          is-offset-one-quarter is-large has-text-centered"
+        >
           <h1 className="title title--white">Enter your city and state</h1>
-          <div className="field has-addons has-addons-centered">
+          <form onSubmit={this.onSearchSubmit} className="field has-addons has-addons-centered">
             <p className="control">
-              <input className="input" type="text" placeholder="New York, NY" />
+              <input
+                onChange={this.onSearchChange}
+                className="input"
+                type="text"
+                placeholder="New York, NY"
+              />
             </p>
             <p className="control">
-              <a className="button is-primary">
+              <button type="submit" className="button is-primary">
                 Search
-              </a>
+              </button>
             </p>
-          </div>
+          </form>
         </div>
       </div>
     );
