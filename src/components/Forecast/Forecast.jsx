@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   PATH_BASE,
@@ -21,10 +22,11 @@ class Forecast extends Component {
   }
 
   componentWillMount() {
-    const isCurrent = true
-      ? `${PATH_BASE}${PATH_SEARCH}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_APPID}`
-      : `${PATH_BASE}${PATH_FORECAST}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`;
-    fetch(isCurrent).then(response => response.json()).then(result => this.updateResult(result));
+    fetch(
+      `${PATH_BASE}${PATH_FORECAST}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
+    )
+      .then(response => response.json())
+      .then(result => this.updateResult(result));
   }
 
   updateResult(result) {
@@ -36,7 +38,7 @@ class Forecast extends Component {
 
   render() {
     const { result, isLoading } = this.state;
-    console.log(result);
+    console.log(result, this.props);
     return (
       <div>
         <div
@@ -45,6 +47,9 @@ class Forecast extends Component {
         >
           <h1 className="title">Your Results</h1>
           {isLoading ? <p>Loading</p> : <p>{Math.round(1.8 * (result.main.temp - 273) + 32)} ºF</p>}
+          <Link to={`${this.props.match.url}/details`} className="button is-primary">
+            More details
+          </Link>
         </div>
       </div>
     );
