@@ -10,6 +10,18 @@ import {
   PARAM_DAYS,
 } from '../../constants';
 
+const Days = ({ result, match }) => (
+  <ul>
+    {result.list.map(days => (
+      <li>
+        <Link to={`${match.url}/details`}>
+          {Math.round(1.8 * (days.temp.day - 273) + 32)} ºF
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
+
 class Forecast extends Component {
   constructor(props) {
     super(props);
@@ -38,6 +50,7 @@ class Forecast extends Component {
 
   render() {
     const { result, isLoading } = this.state;
+    const { match } = this.props;
     console.log(result, this.props);
     return (
       <div>
@@ -45,11 +58,12 @@ class Forecast extends Component {
           className="section column is-half
           is-offset-one-quarter is-large has-text-centered"
         >
-          <h1 className="title">Your Results</h1>
-          {isLoading ? <p>Loading</p> : <p>{Math.round(1.8 * (result.main.temp - 273) + 32)} ºF</p>}
-          <Link to={`${this.props.match.url}/details`} className="button is-primary">
-            More details
-          </Link>
+          {isLoading
+            ? <p>Loading</p>
+            : <div>
+              <h1 className="title">{result.city.name} Forecast</h1>
+              <Days match={match} result={result} />
+            </div>}
         </div>
       </div>
     );

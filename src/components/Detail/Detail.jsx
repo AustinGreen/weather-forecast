@@ -21,7 +21,9 @@ class Detail extends Component {
   }
 
   componentWillMount() {
-    fetch(`${PATH_BASE}${PATH_SEARCH}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_APPID}`)
+    fetch(
+      `${PATH_BASE}${PATH_FORECAST}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
+    )
       .then(response => response.json())
       .then(result => this.updateResult(result));
   }
@@ -35,11 +37,10 @@ class Detail extends Component {
 
   render() {
     const { result, isLoading } = this.state;
-    console.log(result);
     return (
       <div>
         <h1>Detail view for</h1>
-        {isLoading ? <p>Loading</p> : <p>Worked</p>}
+        {isLoading ? <p>Loading</p> : <p>{result.list[0].temp.day}</p>}
       </div>
     );
   }
