@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import {
-  PATH_BASE,
-  PATH_SEARCH,
-  PARAM_TYPE,
-  PARAM_APPID,
-  PATH_FORECAST,
-  PARAM_DAYS,
-} from '../../constants';
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: null,
+      searchTerm: '',
     };
 
     // Bind class methods to object instances
@@ -28,17 +19,28 @@ class App extends Component {
 
   onSearchSubmit(e) {
     const { searchTerm } = this.state;
-    const isCurrent = false
-      ? `${PATH_BASE}${PATH_SEARCH}${searchTerm}&${PARAM_TYPE}&${PARAM_APPID}`
-      : `${PATH_BASE}${PATH_FORECAST}${searchTerm}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`;
-    fetch(isCurrent).then(response => response.json()).then(result => console.log(result));
+    const { history } = this.props;
+    history.push(`/forecast/${searchTerm}`);
     e.preventDefault();
   }
 
   render() {
     // const { searchTerm } = this.state;
     return (
-      <div>
+      <div className="bg-color--sky">
+        <div className="sun" />
+        <div className="x1">
+          <div className="cloud" />
+        </div>
+        <div className="x4">
+          <div className="cloud" />
+        </div>
+        <div className="x5">
+          <div className="cloud" />
+        </div>
+        <div className="x6">
+          <div className="cloud" />
+        </div>
         <div
           className="section section--transparent column is-half
           is-offset-one-quarter is-large has-text-centered"
