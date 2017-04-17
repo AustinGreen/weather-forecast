@@ -10,6 +10,11 @@
   color: #fff;
 }
 
+.is-loading--lg {
+  font-size: 3rem;
+  border: 0;
+}
+
 /* KEYFRAMES */
     /* KEYFRAMES */
     @-webkit-keyframes animateCloud {

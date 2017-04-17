@@ -1,25 +1,23 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import './css/custom.css';
 import App from './components/App';
 import Forecast from './components/Forecast';
 import Detail from './components/Detail';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-const RouterParent = () => (
+const router = (
   <Router>
     <div>
-      <Switch>
-        <Route path="/forecast/:city/details" component={Detail} />
-        <Route path="/forecast/:city" component={Forecast} />
-        <Route exact path="/" component={App} />
-      </Switch>
+      <Route exact path="/" component={App} />
+      <Route exact path="/forecast/:city" component={Forecast} />
+      <Route path="/forecast/:city/details" component={Detail} />
     </div>
   </Router>
 );
 
-ReactDOM.render(<RouterParent />, document.getElementById('root'));
+ReactDOM.render(router, document.getElementById('root'));
 
 if (module.hot) {
   module.hot.accept();

@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+const Sky = () => (
+  <div className="bg-color--sky">
+    <div className="sun" />
+    <div className="x1"><div className="cloud" /></div>
+    <div className="x4"><div className="cloud" /></div>
+    <div className="x5"><div className="cloud" /></div>
+    <div className="x6"><div className="cloud" /></div>
+  </div>
+);
 
 class App extends Component {
   constructor(props) {
@@ -25,22 +35,9 @@ class App extends Component {
   }
 
   render() {
-    // const { searchTerm } = this.state;
     return (
-      <div className="bg-color--sky">
-        <div className="sun" />
-        <div className="x1">
-          <div className="cloud" />
-        </div>
-        <div className="x4">
-          <div className="cloud" />
-        </div>
-        <div className="x5">
-          <div className="cloud" />
-        </div>
-        <div className="x6">
-          <div className="cloud" />
-        </div>
+      <div>
+        <Sky />
         <div
           className="section section--transparent column is-half
           is-offset-one-quarter is-large has-text-centered"

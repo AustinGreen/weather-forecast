@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import {
@@ -10,11 +11,11 @@ import {
   PARAM_DAYS,
 } from '../../constants';
 
-const Days = ({ result, match }) => (
+const Days = ({ forecastResult, match }) => (
   <ul>
-    {result.list.map(days => (
+    {forecastResult.list.map((days, i) => (
       <li>
-        <Link to={`${match.url}/details`}>
+        <Link to={`${match.url}/details/${i}`}>
           {Math.round(1.8 * (days.temp.day - 273) + 32)} ºF
         </Link>
       </li>
@@ -26,7 +27,7 @@ class Forecast extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: '',
+      forecastResult: '',
       isLoading: true,
     };
 
@@ -34,24 +35,25 @@ class Forecast extends Component {
   }
 
   componentWillMount() {
+    const { match } = this.props;
     fetch(
-      `${PATH_BASE}${PATH_FORECAST}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
+      `${PATH_BASE}${PATH_FORECAST}${match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
     )
       .then(response => response.json())
-      .then(result => this.updateResult(result));
+      .then(forecastResult => this.updateResult(forecastResult));
   }
 
-  updateResult(result) {
+  updateResult(forecastResult) {
     this.setState({
-      result,
+      forecastResult,
       isLoading: false,
     });
   }
 
   render() {
-    const { result, isLoading } = this.state;
+    const { forecastResult, isLoading } = this.state;
     const { match } = this.props;
-    console.log(result, this.props);
+    // console.log(forecastResult, this.props);
     return (
       <div>
         <div
@@ -59,10 +61,12 @@ class Forecast extends Component {
           is-offset-one-quarter is-large has-text-centered"
         >
           {isLoading
-            ? <p>Loading</p>
+            ? <a className="button is-loading is-loading--lg">
+                Button
+              </a>
             : <div>
-              <h1 className="title">{result.city.name} Forecast</h1>
-              <Days match={match} result={result} />
+              <h1 className="title">{forecastResult.city.name} Forecast</h1>
+              <Days match={match} forecastResult={forecastResult} />
             </div>}
         </div>
       </div>
