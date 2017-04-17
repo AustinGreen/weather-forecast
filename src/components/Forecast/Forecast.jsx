@@ -14,8 +14,14 @@ import {
 const Days = ({ forecastResult, match }) => (
   <ul>
     {forecastResult.list.map((days, i) => (
-      <li>
-        <Link to={`${match.url}/details/${i}`}>
+      <li key={i}>
+        <Link
+          to={{
+            pathname: `${match.url}/details`,
+            hash: `#${i}`,
+            state: { forecastResult },
+          }}
+        >
           {Math.round(1.8 * (days.temp.day - 273) + 32)} ºF
         </Link>
       </li>
@@ -53,7 +59,7 @@ class Forecast extends Component {
   render() {
     const { forecastResult, isLoading } = this.state;
     const { match } = this.props;
-    // console.log(forecastResult, this.props);
+    console.log(forecastResult);
     return (
       <div>
         <div

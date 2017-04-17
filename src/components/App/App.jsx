@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const Sky = () => (
-  <div className="bg-color--sky">
+  <div>
     <div className="sun" />
     <div className="x1"><div className="cloud" /></div>
     <div className="x4"><div className="cloud" /></div>
@@ -36,7 +36,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="bg-color--sky">
         <Sky />
         <div
           className="section section--transparent column is-half
