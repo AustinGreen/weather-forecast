@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const Sky = () => (
-  <div>
+  <div className="sky-animations">
     <div className="sun" />
     <div className="x1"><div className="cloud" /></div>
     <div className="x4"><div className="cloud" /></div>
