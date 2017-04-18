@@ -35,9 +35,6 @@ class Forecast extends Component {
 
   componentWillMount() {
     const { match } = this.props;
-    console.log(
-      `${PATH_BASE}${PATH_FORECAST}${match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
-    );
     fetch(
       `${PATH_BASE}${PATH_FORECAST}${match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
     )

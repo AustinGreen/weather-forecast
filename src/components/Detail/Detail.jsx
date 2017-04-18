@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Detail extends Component {
   render() {
     const { forecastResult } = this.props.location.state;
-    console.log(this.props.location);
     const dayIndex = this.props.location.hash.replace('#', '');
     const detailedForecast = forecastResult.list[dayIndex];
     return (
@@ -11,7 +10,7 @@ class Detail extends Component {
         <h1>Detail view for</h1>
         <ul>
           {Object.keys(detailedForecast).map(objProp => (
-            <li>{`${objProp}: ${detailedForecast[objProp]}`}</li>
+            <li key={objProp}>{`${objProp}: ${detailedForecast[objProp]}`}</li>
           ))}
         </ul>
       </div>

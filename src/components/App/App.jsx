@@ -64,8 +64,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  history: PropTypes.object.isRequired,
-};
-
 export default App;
