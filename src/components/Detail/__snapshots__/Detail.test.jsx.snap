@@ -1,0 +1,33 @@
+exports[`Detail snapshots 1`] = `
+<div>
+  <h1>
+    Detail view for
+  </h1>
+  <ul>
+    <li>
+      dt: 1492599600
+    </li>
+    <li>
+      temp: [object Object]
+    </li>
+    <li>
+      pressure: 1044.05
+    </li>
+    <li>
+      humidity: 57
+    </li>
+    <li>
+      weather: [object Object]
+    </li>
+    <li>
+      speed: 1.86
+    </li>
+    <li>
+      deg: 88
+    </li>
+    <li>
+      clouds: 8
+    </li>
+  </ul>
+</div>
+`;

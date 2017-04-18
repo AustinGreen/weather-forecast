@@ -1,0 +1,11 @@
+exports[`Forecast snapshots 1`] = `
+<div>
+  <div
+    className="section column is-half is-offset-one-quarter is-large has-text-centered">
+    <a
+      className="button is-loading is-loading--lg">
+      Button
+    </a>
+  </div>
+</div>
+`;

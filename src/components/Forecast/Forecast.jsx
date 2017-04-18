@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import {
-  PATH_BASE,
-  PATH_SEARCH,
-  PARAM_TYPE,
-  PARAM_APPID,
-  PATH_FORECAST,
-  PARAM_DAYS,
-} from '../../constants';
+import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '../../constants';
 
 const Days = ({ forecastResult, match }) => (
   <ul>
@@ -42,6 +35,9 @@ class Forecast extends Component {
 
   componentWillMount() {
     const { match } = this.props;
+    console.log(
+      `${PATH_BASE}${PATH_FORECAST}${match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
+    );
     fetch(
       `${PATH_BASE}${PATH_FORECAST}${match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
     )
@@ -59,7 +55,6 @@ class Forecast extends Component {
   render() {
     const { forecastResult, isLoading } = this.state;
     const { match } = this.props;
-    console.log(forecastResult);
     return (
       <div>
         <div
@@ -79,5 +74,9 @@ class Forecast extends Component {
     );
   }
 }
+
+Forecast.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 
 export default Forecast;
