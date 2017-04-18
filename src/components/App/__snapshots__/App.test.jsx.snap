@@ -1,0 +1,57 @@
+exports[`App snapshots 1`] = `
+<div
+  className="bg-color--sky">
+  <div
+    className="sky-animations">
+    <div
+      className="sun" />
+    <div
+      className="x1">
+      <div
+        className="cloud" />
+    </div>
+    <div
+      className="x4">
+      <div
+        className="cloud" />
+    </div>
+    <div
+      className="x5">
+      <div
+        className="cloud" />
+    </div>
+    <div
+      className="x6">
+      <div
+        className="cloud" />
+    </div>
+  </div>
+  <div
+    className="section section--transparent column is-half is-offset-one-quarter is-large has-text-centered">
+    <h1
+      className="title title--white">
+      Enter your city and state
+    </h1>
+    <form
+      className="field has-addons has-addons-centered"
+      onSubmit={[Function]}>
+      <p
+        className="control">
+        <input
+          className="input"
+          onChange={[Function]}
+          placeholder="New York, NY"
+          type="text" />
+      </p>
+      <p
+        className="control">
+        <button
+          className="button is-primary"
+          type="submit">
+          Search
+        </button>
+      </p>
+    </form>
+  </div>
+</div>
+`;
