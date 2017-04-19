@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-operators */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -6,19 +8,23 @@ import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '.
 
 const Days = ({ forecastResult, match }) => (
   <ul>
-    {forecastResult.list.map((days, i) => (
-      <li key={days.dt}>
-        <Link
-          to={{
-            pathname: `${match.url}/details`,
-            hash: `#${i}`,
-            state: { forecastResult },
-          }}
-        >
-          {Math.round(1.8 * (days.temp.day - 273) + 32)} ºF
-        </Link>
-      </li>
-    ))}
+    {forecastResult.list.map((days, i) => {
+      const tempCelsius = days.temp.day - 273;
+      const tempF = tempCelsius * 1.8 + 32;
+      return (
+        <li key={days.dt}>
+          <Link
+            to={{
+              pathname: `${match.url}/details`,
+              hash: `#${i}`,
+              state: { forecastResult },
+            }}
+          >
+            {Math.round(tempF)} ºF
+          </Link>
+        </li>
+      );
+    })}
   </ul>
 );
 

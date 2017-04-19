@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import Detail from './Detail';
 import { shallow } from 'enzyme';
-import { forecastTestData } from './fixtures';
+import forecastTestData from './fixtures';
 
 describe('Detail', () => {
   it('renders', () => {

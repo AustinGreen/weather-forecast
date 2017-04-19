@@ -67,7 +67,7 @@ class App extends Component {
 App.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }).isRequired,
+  }),
 };
 
 export default App;
