@@ -7,7 +7,7 @@ import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '.
 const Days = ({ forecastResult, match }) => (
   <ul>
     {forecastResult.list.map((days, i) => (
-      <li key={i}>
+      <li key={days.dt}>
         <Link
           to={{
             pathname: `${match.url}/details`,
@@ -73,7 +73,16 @@ class Forecast extends Component {
 }
 
 Forecast.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }).isRequired,
+};
+
+Days.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }).isRequired,
+  forecastResult: PropTypes.shape({}).isRequired,
 };
 
 export default Forecast;

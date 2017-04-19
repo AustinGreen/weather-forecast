@@ -1,4 +1,4 @@
-export const forecastTestData = {
+const forecastTestData = {
   city: {
     id: 2643743,
     name: 'London',
@@ -99,3 +99,5 @@ export const forecastTestData = {
     },
   ],
 };
+
+export default forecastTestData;
