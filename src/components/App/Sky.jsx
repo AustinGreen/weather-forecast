@@ -1,6 +1,13 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+export const SkyLandscape = styled.div`
+  background-color: #65bffd;
+  @media (max-width: 1000px) {
+    height: 100vh;
+  }
+`;
+
 const SkyParent = styled.div`
   @media (max-width: 1000px) {
       display: none;

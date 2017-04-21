@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Sky from './Sky';
-
-const SkyLandscape = styled.div`
-  background-color: #65bffd;
-  @media (max-width: 1000px) {
-    height: 100vh;
-  }
-`;
-
-const HomeHeading = styled.h1`
-  color: #fff;
-`;
-
-const TransparentBackground = styled.div`
-  background-color: rgba(0, 0, 0, 0);
-`;
+import Sky, { SkyLandscape } from './Sky';
+import TransparentBackground from '../../shared/Backgrounds';
+import HomeHeading from '../../shared/Headings';
 
 class App extends Component {
   constructor(props) {
