@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Sky from './Sky';
 
-const Sky = () => (
-  <div className="sky-animations">
-    <div className="sun" />
-    <div className="x1"><div className="cloud" /></div>
-    <div className="x4"><div className="cloud" /></div>
-    <div className="x5"><div className="cloud" /></div>
-    <div className="x6"><div className="cloud" /></div>
-  </div>
-);
+const SkyLandscape = styled.div`
+  background-color: #65bffd;
+  @media (max-width: 1000px) {
+    height: 100vh;
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="bg-color--sky">
+      <SkyLandscape>
         <Sky />
         <div
           className="section section--transparent column is-half
@@ -59,7 +58,7 @@ class App extends Component {
             </p>
           </form>
         </div>
-      </div>
+      </SkyLandscape>
     );
   }
 }
@@ -67,7 +66,7 @@ class App extends Component {
 App.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default App;
