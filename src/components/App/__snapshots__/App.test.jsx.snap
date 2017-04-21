@@ -62,6 +62,7 @@ exports[`App snapshots 1`] = `
         </button>
       </p>
     </form>
+    
   </div>
 </div>
 `;

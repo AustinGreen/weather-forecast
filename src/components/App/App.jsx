@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Sky, { SkyLandscape } from './Sky';
+import Footer from './Footer';
 import TransparentBackground from '../../shared/Backgrounds';
 import HomeHeading from '../../shared/Headings';
 import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '../../constants';
@@ -47,36 +48,39 @@ class App extends Component {
 
   render() {
     return (
-      <SkyLandscape>
-        <Sky />
-        <TransparentBackground
-          className="section column is-half
+      <div>
+        <SkyLandscape>
+          <Sky />
+          <TransparentBackground
+            className="section column is-half
           is-offset-one-quarter is-large has-text-centered"
-        >
-          <HomeHeading className="title">Enter your city and state</HomeHeading>
-          <form onSubmit={this.onSearchSubmit} className="field has-addons has-addons-centered">
-            <p className="control">
-              <input
-                onChange={this.onSearchChange}
-                className="input"
-                type="text"
-                placeholder="New York, NY"
-              />
-            </p>
-            <p className="control">
-              <button type="submit" className="button is-primary">
-                Search
-              </button>
-            </p>
-          </form>
-          {this.state.isError
-            ? <div className="notification is-danger">
-              <button className="delete" />
-                Location not found. Please try again.
-              </div>
-            : ''}
-        </TransparentBackground>
-      </SkyLandscape>
+          >
+            <HomeHeading className="title">Enter your city and state</HomeHeading>
+            <form onSubmit={this.onSearchSubmit} className="field has-addons has-addons-centered">
+              <p className="control">
+                <input
+                  onChange={this.onSearchChange}
+                  className="input"
+                  type="text"
+                  placeholder="New York, NY"
+                />
+              </p>
+              <p className="control">
+                <button type="submit" className="button is-primary">
+                  Search
+                </button>
+              </p>
+            </form>
+            {this.state.isError
+              ? <div className="notification is-danger">
+                <button className="delete" />
+                  Location not found. Please try again.
+                </div>
+              : ''}
+          </TransparentBackground>
+        </SkyLandscape>
+        <Footer />
+      </div>
     );
   }
 }
