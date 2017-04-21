@@ -114,9 +114,6 @@ const Sun = styled.div`
   top: 50px;
   right: 50px;
   box-shadow: 0px 0px 113px 23px yellow;
-  -webkit-animation-name: yellowPulse;
-  -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
   opacity: 0.8;
 `;
 

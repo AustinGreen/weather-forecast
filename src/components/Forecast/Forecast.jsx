@@ -2,9 +2,15 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '../../constants';
+
+const Loader = styled.a`
+  font-size: 3rem;
+  border: 0;
+`;
 
 const Days = ({ forecastResult, match }) => (
   <ul>
@@ -65,9 +71,9 @@ class Forecast extends Component {
           is-offset-one-quarter is-large has-text-centered"
         >
           {isLoading
-            ? <a className="button is-loading is-loading--lg">
+            ? <Loader className="button is-loading">
                 Button
-              </a>
+              </Loader>
             : <div>
               <h1 className="title">{forecastResult.city.name} Forecast</h1>
               <Days match={match} forecastResult={forecastResult} />
