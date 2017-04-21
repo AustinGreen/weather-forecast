@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '../../constants';
-
 const Loader = styled.a`
   font-size: 3rem;
   border: 0;
@@ -46,12 +44,7 @@ class Forecast extends Component {
   }
 
   componentWillMount() {
-    const { match } = this.props;
-    fetch(
-      `${PATH_BASE}${PATH_FORECAST}${match.params.city}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`,
-    )
-      .then(response => response.json())
-      .then(forecastResult => this.updateResult(forecastResult));
+    this.updateResult(this.props.history.location.state);
   }
 
   updateResult(forecastResult) {
@@ -87,6 +80,10 @@ class Forecast extends Component {
 Forecast.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string,
+  }).isRequired,
+  history: PropTypes.shape({
+    location: PropTypes.object,
+    state: PropTypes.object,
   }).isRequired,
 };
 
