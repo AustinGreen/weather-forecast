@@ -10,6 +10,14 @@ const SkyLandscape = styled.div`
   }
 `;
 
+const HomeHeading = styled.h1`
+  color: #fff;
+`;
+
+const TransparentBackground = styled.div`
+  background-color: rgba(0, 0, 0, 0);
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,11 +45,11 @@ class App extends Component {
     return (
       <SkyLandscape>
         <Sky />
-        <div
-          className="section section--transparent column is-half
+        <TransparentBackground
+          className="section column is-half
           is-offset-one-quarter is-large has-text-centered"
         >
-          <h1 className="title title--white">Enter your city and state</h1>
+          <HomeHeading className="title">Enter your city and state</HomeHeading>
           <form onSubmit={this.onSearchSubmit} className="field has-addons has-addons-centered">
             <p className="control">
               <input
@@ -57,7 +65,7 @@ class App extends Component {
               </button>
             </p>
           </form>
-        </div>
+        </TransparentBackground>
       </SkyLandscape>
     );
   }

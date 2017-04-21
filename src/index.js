@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bulma/css/bulma.css';
-import './css/custom.css';
 import App from './components/App';
 import Forecast from './components/Forecast';
 import Detail from './components/Detail';

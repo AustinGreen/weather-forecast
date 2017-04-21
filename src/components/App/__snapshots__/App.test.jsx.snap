@@ -1,35 +1,45 @@
 exports[`App snapshots 1`] = `
 <div
-  className="bg-color--sky">
+  className="bRxEjW">
   <div
-    className="sky-animations">
+    className="djzNwS">
     <div
-      className="sun" />
+      className="idhBkf" />
     <div
-      className="x1">
+      className="jppquj">
       <div
-        className="cloud" />
+        className="lblJGx" />
     </div>
     <div
-      className="x4">
+      className="XcSzE">
       <div
-        className="cloud" />
+        className="lblJGx" />
     </div>
     <div
-      className="x5">
+      className="bVomTb">
       <div
-        className="cloud" />
+        className="lblJGx" />
     </div>
     <div
-      className="x6">
+      className="LdiPp">
       <div
-        className="cloud" />
+        className="lblJGx" />
+    </div>
+    <div
+      className="kaGqkq">
+      <div
+        className="lblJGx" />
+    </div>
+    <div
+      className="giRQOq">
+      <div
+        className="lblJGx" />
     </div>
   </div>
   <div
-    className="section section--transparent column is-half is-offset-one-quarter is-large has-text-centered">
+    className="section column is-half is-offset-one-quarter is-large has-text-centered gQTaUs">
     <h1
-      className="title title--white">
+      className="title iFFOKQ">
       Enter your city and state
     </h1>
     <form
