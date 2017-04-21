@@ -1,4 +1,5 @@
 import React from 'react';
+import FontAwesome from 'react-fontawesome';
 import styled, { keyframes } from 'styled-components';
 
 const StyledFooterContainer = styled.footer`
@@ -10,14 +11,11 @@ const Footer = () => (
     <div className="container">
       <div className="content has-text-centered">
         <p>
-          <strong>Weather App.</strong>
-          {' '}
-          Made with 🔥🔥🔥 by
-          {' '}
-          <a href="http://github.com/AustinGreen" target="_blank" rel="noopener noreferrer">
-            Austin Green
-          </a>
-          .
+          <span className="icon is-large">
+            <a href="http://github.com/AustinGreen" target="_blank" rel="noopener noreferrer">
+              <FontAwesome name="github" size="3x" style={{ color: '#010101' }} />
+            </a>
+          </span>
         </p>
       </div>
     </div>
