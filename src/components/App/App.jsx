@@ -4,7 +4,14 @@ import Sky, { SkyLandscape } from './Sky';
 import Footer from './Footer';
 import TransparentBackground from '../../shared/Backgrounds';
 import HomeHeading from '../../shared/Headings';
-import { PATH_BASE, PARAM_TYPE, PARAM_APPID, PATH_FORECAST, PARAM_DAYS } from '../../constants';
+import {
+  PATH_BASE,
+  PARAM_TYPE,
+  PARAM_UNIT,
+  PARAM_APPID,
+  PATH_FORECAST,
+  PARAM_DAYS,
+} from '../../constants';
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +46,9 @@ class App extends Component {
   onSearchSubmit(e) {
     const { searchTerm } = this.state;
     if (searchTerm.length > 0) {
-      fetch(`${PATH_BASE}${PATH_FORECAST}${searchTerm}&${PARAM_TYPE}&${PARAM_APPID}&${PARAM_DAYS}`)
+      fetch(
+        `${PATH_BASE}${PATH_FORECAST}${searchTerm}&${PARAM_TYPE}&${PARAM_UNIT}&${PARAM_APPID}&${PARAM_DAYS}`,
+      )
         .then(response => response.json())
         .then(forecastResult => this.onDataRecieved(forecastResult));
     }

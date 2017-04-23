@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import land from '../../land.svg';
+import land from '../../img/land.svg';
 
 export const SkyLandscape = styled.div`
   background-image: url(${land});
