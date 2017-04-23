@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const Loader = styled.a`
   font-size: 3rem;
@@ -23,6 +24,8 @@ const Days = ({ forecastResult, match }) => (
     {forecastResult.list.map((days, i) => {
       const tempCelsius = days.temp.day - 273;
       const tempF = tempCelsius * 1.8 + 32;
+      const dateObject = new Date(days.dt * 1000);
+      const formattedDate = moment(dateObject).format('dddd[,] MMMM Do');
       return (
         <div key={days.dt} className="column">
           <Link
@@ -35,7 +38,7 @@ const Days = ({ forecastResult, match }) => (
             <Card className="card">
               <div className="card-content">
                 <p>
-                  {'May 1'}
+                  {formattedDate}
                 </p>
                 {Math.round(tempF)} ºF
               </div>
