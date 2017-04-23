@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import Footer from '../../shared/Footer';
+import { SkyLandscape } from '../../shared/Sky';
+import TransparentBackground from '../../shared/Backgrounds';
 import icon01d from '../../img/weather-icons/01d.svg';
 import icon01n from '../../img/weather-icons/01n.svg';
 import icon02d from '../../img/weather-icons/02d.svg';
@@ -54,7 +57,7 @@ const ImageContainer = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3em auto 1em;
+  margin: 2em auto 1em;
 `;
 
 const Card = styled.div`
@@ -81,12 +84,8 @@ const Days = ({ forecastResult, match }) => (
           >
             <Card className="card">
               <div className="card-content">
-                <p>
-                  {formattedDate}
-                </p>
-                <p>
-                  {Math.round(days.temp.day)} ºF
-                </p>
+                <p className="subtitle is-4">{formattedDate}</p>
+                <p className="title is-2">{Math.round(days.temp.day)} ºF</p>
                 <ImageContainer className="image is-128x128">
                   <img src={icons[`icon${days.weather[0].icon}`]} alt="" />
                 </ImageContainer>
@@ -126,19 +125,22 @@ class Forecast extends Component {
     const { match } = this.props;
     return (
       <div>
-        <div
-          className="section column is-10
-          is-offset-1 has-text-centered"
-        >
-          {isLoading
-            ? <Loader className="button is-loading">
-                Button
-              </Loader>
-            : <div>
-              <h1 className="title">{forecastResult.city.name} Forecast</h1>
-              <Days match={match} forecastResult={forecastResult} />
-            </div>}
-        </div>
+        <SkyLandscape>
+          <TransparentBackground
+            className="section column is-10
+  is-offset-1 is-medium has-text-centered"
+          >
+            {isLoading
+              ? <Loader className="button is-loading">
+                  Button
+                </Loader>
+              : <div>
+                <h1 className="title">{forecastResult.city.name} Forecast</h1>
+                <Days match={match} forecastResult={forecastResult} />
+              </div>}
+          </TransparentBackground>
+        </SkyLandscape>
+        <Footer />
       </div>
     );
   }

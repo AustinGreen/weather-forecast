@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Sky, { SkyLandscape } from './Sky';
-import Footer from './Footer';
+import Sky, { SkyLandscape } from '../../shared/Sky';
+import Footer from '../../shared/Footer';
 import TransparentBackground from '../../shared/Backgrounds';
 import HomeHeading from '../../shared/Headings';
 import {
