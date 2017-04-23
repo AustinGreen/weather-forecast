@@ -10,13 +10,21 @@ const Loader = styled.a`
   border: 0;
 `;
 
+const Card = styled.div`
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 4px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    transform: scale(1.1);
+  }
+`;
+
 const Days = ({ forecastResult, match }) => (
-  <ul>
+  <div className="columns">
     {forecastResult.list.map((days, i) => {
       const tempCelsius = days.temp.day - 273;
       const tempF = tempCelsius * 1.8 + 32;
       return (
-        <li key={days.dt}>
+        <div key={days.dt} className="column">
           <Link
             to={{
               pathname: `${match.url}/details`,
@@ -24,12 +32,19 @@ const Days = ({ forecastResult, match }) => (
               state: { forecastResult },
             }}
           >
-            {Math.round(tempF)} ºF
+            <Card className="card">
+              <div className="card-content">
+                <p>
+                  {'May 1'}
+                </p>
+                {Math.round(tempF)} ºF
+              </div>
+            </Card>
           </Link>
-        </li>
+        </div>
       );
     })}
-  </ul>
+  </div>
 );
 
 class Forecast extends Component {
@@ -60,8 +75,8 @@ class Forecast extends Component {
     return (
       <div>
         <div
-          className="section column is-half
-          is-offset-one-quarter is-large has-text-centered"
+          className="section column is-10
+          is-offset-1 has-text-centered"
         >
           {isLoading
             ? <Loader className="button is-loading">

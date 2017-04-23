@@ -1,10 +1,15 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import land from '../../land.svg';
 
 export const SkyLandscape = styled.div`
+  background-image: url(${land});
+  background-position: 50% 300%;
+  background-repeat: no-repeat;
   background-color: #65bffd;
   @media (max-width: 1000px) {
     height: 100vh;
+    background-position: 50% 100%;
   }
 `;
 

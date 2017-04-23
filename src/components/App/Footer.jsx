@@ -1,9 +1,9 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const StyledFooterContainer = styled.footer`
-  background-color: #BBD24C;
+  background-color: #AABE3D;
 `;
 
 const Footer = () => (

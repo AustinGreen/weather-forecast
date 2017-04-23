@@ -60,7 +60,7 @@ class App extends Component {
               <p className="control">
                 <input
                   onChange={this.onSearchChange}
-                  className="input"
+                  className={this.state.isError ? 'input is-danger' : 'input'}
                   type="text"
                   placeholder="New York, NY"
                 />
@@ -71,12 +71,6 @@ class App extends Component {
                 </button>
               </p>
             </form>
-            {this.state.isError
-              ? <div className="notification is-danger">
-                <button className="delete" />
-                  Location not found. Please try again.
-                </div>
-              : ''}
           </TransparentBackground>
         </SkyLandscape>
         <Footer />
