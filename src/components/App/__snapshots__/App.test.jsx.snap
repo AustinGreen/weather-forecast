@@ -1,68 +1,96 @@
 exports[`App snapshots 1`] = `
-<div
-  className="bRxEjW">
+<div>
   <div
-    className="djzNwS">
+    className="bGOOgi">
     <div
-      className="idhBkf" />
-    <div
-      className="jppquj">
+      className="djzNwS">
       <div
-        className="lblJGx" />
+        className="idhBkf" />
+      <div
+        className="jppquj">
+        <div
+          className="lblJGx" />
+      </div>
+      <div
+        className="XcSzE">
+        <div
+          className="lblJGx" />
+      </div>
+      <div
+        className="bVomTb">
+        <div
+          className="lblJGx" />
+      </div>
+      <div
+        className="LdiPp">
+        <div
+          className="lblJGx" />
+      </div>
+      <div
+        className="kaGqkq">
+        <div
+          className="lblJGx" />
+      </div>
+      <div
+        className="giRQOq">
+        <div
+          className="lblJGx" />
+      </div>
     </div>
     <div
-      className="XcSzE">
-      <div
-        className="lblJGx" />
-    </div>
-    <div
-      className="bVomTb">
-      <div
-        className="lblJGx" />
-    </div>
-    <div
-      className="LdiPp">
-      <div
-        className="lblJGx" />
-    </div>
-    <div
-      className="kaGqkq">
-      <div
-        className="lblJGx" />
-    </div>
-    <div
-      className="giRQOq">
-      <div
-        className="lblJGx" />
+      className="section column is-half is-offset-one-quarter is-large has-text-centered gQTaUs">
+      <h1
+        className="title iFFOKQ">
+        Enter your city and state
+      </h1>
+      <form
+        className="field has-addons has-addons-centered"
+        onSubmit={[Function]}>
+        <p
+          className="control">
+          <input
+            className="input"
+            onChange={[Function]}
+            placeholder="New York, NY"
+            type="text" />
+        </p>
+        <p
+          className="control">
+          <button
+            className="button is-primary"
+            type="submit">
+            Search
+          </button>
+        </p>
+      </form>
     </div>
   </div>
-  <div
-    className="section column is-half is-offset-one-quarter is-large has-text-centered gQTaUs">
-    <h1
-      className="title iFFOKQ">
-      Enter your city and state
-    </h1>
-    <form
-      className="field has-addons has-addons-centered"
-      onSubmit={[Function]}>
-      <p
-        className="control">
-        <input
-          className="input"
-          onChange={[Function]}
-          placeholder="New York, NY"
-          type="text" />
-      </p>
-      <p
-        className="control">
-        <button
-          className="button is-primary"
-          type="submit">
-          Search
-        </button>
-      </p>
-    </form>
-    
-  </div>
+  <footer
+    className="footer is-hidden-mobile is-hidden-tablet-only jPLOcw">
+    <div
+      className="container">
+      <div
+        className="content has-text-centered">
+        <p>
+          <span
+            className="icon is-large">
+            <a
+              href="http://github.com/AustinGreen"
+              rel="noopener noreferrer"
+              target="_blank">
+              <span
+                aria-hidden={true}
+                className="fa fa-github fa-3x"
+                style={
+                  Object {
+                    "color": "#010101",
+                  }
+                } />
+            </a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </footer>
 </div>
 `;
