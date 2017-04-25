@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import Footer from '../../shared/Footer';
-import { SkyLandscape } from '../../shared/Sky';
 import icons from '../../shared/Icons';
 import TransparentBackground from '../../shared/Backgrounds';
 
@@ -87,24 +85,19 @@ class Forecast extends Component {
     const { forecastResult, isLoading } = this.state;
     const { match } = this.props;
     return (
-      <div>
-        <SkyLandscape>
-          <TransparentBackground
-            className="section column is-10
-  is-offset-1 is-medium has-text-centered"
-          >
-            {isLoading
-              ? <Loader className="button is-loading">
-                  Button
-                </Loader>
-              : <div>
-                <h1 className="title">{forecastResult.city.name} Forecast</h1>
-                <Days match={match} forecastResult={forecastResult} />
-              </div>}
-          </TransparentBackground>
-        </SkyLandscape>
-        <Footer />
-      </div>
+      <TransparentBackground
+        className="section column is-10
+  is-offset-1 has-text-centered"
+      >
+        {isLoading
+          ? <Loader className="button is-loading">
+              Button
+            </Loader>
+          : <div>
+            <h1 className="title">{forecastResult.city.name} Forecast</h1>
+            <Days match={match} forecastResult={forecastResult} />
+          </div>}
+      </TransparentBackground>
     );
   }
 }

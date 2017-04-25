@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Sky, { SkyLandscape } from '../../shared/Sky';
-import Footer from '../../shared/Footer';
 import TransparentBackground from '../../shared/Backgrounds';
 import HomeHeading from '../../shared/Headings';
 import {
@@ -57,33 +55,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <SkyLandscape>
-          <Sky />
-          <TransparentBackground
-            className="section column is-half
+      <TransparentBackground
+        className="section column is-half
           is-offset-one-quarter is-large has-text-centered"
-          >
-            <HomeHeading className="title">Enter your city and state</HomeHeading>
-            <form onSubmit={this.onSearchSubmit} className="field has-addons has-addons-centered">
-              <p className="control">
-                <input
-                  onChange={this.onSearchChange}
-                  className={this.state.isError ? 'input is-danger' : 'input'}
-                  type="text"
-                  placeholder="New York, NY"
-                />
-              </p>
-              <p className="control">
-                <button type="submit" className="button is-primary">
-                  Search
-                </button>
-              </p>
-            </form>
-          </TransparentBackground>
-        </SkyLandscape>
-        <Footer />
-      </div>
+      >
+        <HomeHeading className="title">Enter your city and state</HomeHeading>
+        <form onSubmit={this.onSearchSubmit} className="field has-addons has-addons-centered">
+          <p className="control">
+            <input
+              onChange={this.onSearchChange}
+              className={this.state.isError ? 'input is-danger' : 'input'}
+              type="text"
+              placeholder="New York, NY"
+            />
+          </p>
+          <p className="control">
+            <button type="submit" className="button is-primary">
+              Search
+            </button>
+          </p>
+        </form>
+      </TransparentBackground>
     );
   }
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TransparentBackground from '../../shared/Backgrounds';
 
 const Detail = ({ location }) => {
   const { forecastResult } = location.state;
   const dayIndex = location.hash.replace('#', '');
   const detailedForecast = forecastResult.list[dayIndex];
   return (
-    <div>
-      <h1>Detail view for</h1>
+    <div className="column is-8 is-offset-2">
       <ul>
         {Object.keys(detailedForecast).map(objProp => (
           <li key={objProp}>{`${objProp}: ${detailedForecast[objProp]}`}</li>

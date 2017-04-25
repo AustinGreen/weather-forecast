@@ -6,13 +6,19 @@ import 'font-awesome/css/font-awesome.css';
 import App from './components/App';
 import Forecast from './components/Forecast';
 import Detail from './components/Detail';
+import Sky, { SkyLandscape } from './shared/Sky';
+import Footer from './shared/Footer';
 
 const router = (
   <Router>
     <div>
-      <Route exact path="/" component={App} />
-      <Route exact path="/forecast/:city" component={Forecast} />
-      <Route path="/forecast/:city/details" component={Detail} />
+      <SkyLandscape>
+        <Sky />
+        <Route exact path="/" component={App} />
+        <Route path="/forecast/:city" component={Forecast} />
+        <Route path="/forecast/:city/details" component={Detail} />
+      </SkyLandscape>
+      <Footer />
     </div>
   </Router>
 );
