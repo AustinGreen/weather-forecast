@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TransparentBackground from '../../shared/Backgrounds';
 
 const Detail = ({ location }) => {
   const { forecastResult } = location.state;

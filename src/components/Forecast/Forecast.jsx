@@ -7,6 +7,14 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import icons from '../../shared/Icons';
 import TransparentBackground from '../../shared/Backgrounds';
+import {
+  PATH_BASE,
+  PARAM_TYPE,
+  PARAM_UNIT,
+  PARAM_APPID,
+  PATH_FORECAST,
+  PARAM_DAYS,
+} from '../../constants';
 
 const Loader = styled.a`
   font-size: 3rem;
@@ -71,7 +79,15 @@ class Forecast extends Component {
   }
 
   componentWillMount() {
-    this.updateResult(this.props.history.location.state);
+    if (this.props.history.location.state) {
+      this.updateResult(this.props.history.location.state);
+    } else {
+      fetch(
+        `${PATH_BASE}${PATH_FORECAST}${this.props.match.params.city}&${PARAM_TYPE}&${PARAM_UNIT}&${PARAM_APPID}&${PARAM_DAYS}`,
+      )
+        .then(response => response.json())
+        .then(forecastResult => this.updateResult(forecastResult));
+    }
   }
 
   updateResult(forecastResult) {
@@ -105,6 +121,7 @@ class Forecast extends Component {
 Forecast.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string,
+    params: PropTypes.object,
   }).isRequired,
   history: PropTypes.shape({
     location: PropTypes.object,
