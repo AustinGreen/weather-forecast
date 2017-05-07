@@ -16,7 +16,7 @@ const router = (
         <Sky />
         <Route exact path="/" component={App} />
         <Route path="/forecast/:city" component={Forecast} />
-        <Route path="/forecast/:city/details" component={Detail} />
+        {/* <Route path="/forecast/:city/details" component={Detail} /> */}
       </SkyLandscape>
       <Footer />
     </div>

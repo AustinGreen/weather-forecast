@@ -103,7 +103,7 @@ class Forecast extends Component {
     return (
       <TransparentBackground
         className="section column is-10
-  is-offset-1 has-text-centered"
+  is-offset-1 has-text-centered" large
       >
         {isLoading
           ? <Loader className="button is-loading">
