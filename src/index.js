@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import 'font-awesome/css/font-awesome.css';
 import App from './components/App';
@@ -15,8 +15,8 @@ const router = (
       <SkyLandscape>
         <Sky />
         <Route exact path="/" component={App} />
-        <Route path="/forecast/:city" component={Forecast} />
-        {/* <Route path="/forecast/:city/details" component={Detail} /> */}
+        <Route exact path="/forecast/:city" component={Forecast} />
+        <Route path="/forecast/:city/details" component={Detail} />
       </SkyLandscape>
       <Footer />
     </div>
